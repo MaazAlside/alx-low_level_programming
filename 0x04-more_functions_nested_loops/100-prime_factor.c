@@ -29,6 +29,7 @@ int main(void)
 		printf("%ld ", n);
 	}
 	printf("\n");
+
 	return (0);
 }
 
