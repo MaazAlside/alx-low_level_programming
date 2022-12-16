@@ -10,6 +10,7 @@ int main(void)
 {
 	long int n = 612852475143;
 	int i;
+
 	while (n % 2 == 0)
 	{
 		printf("%d ", 2);
