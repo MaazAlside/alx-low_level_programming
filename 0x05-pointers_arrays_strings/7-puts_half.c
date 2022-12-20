@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
-  * puts2 - prints every other character of a string
+  * puts_half - prints every other character of a string
   * @str: the string to print
   *
   */
@@ -17,7 +17,7 @@ void puts_half(char *str)
 	;
 	}
 
-	for (j = i/2 ; j < i ; j++)
+	for (j = i / 2 + 1 ; j < i ; j++)
 	{
 		putchar(str[j]);
 	}
