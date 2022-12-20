@@ -7,7 +7,7 @@
   *
   */
 
-void puts2(char *str)
+void puts_half(char *str)
 {
 	int i;
 	int j;
@@ -16,7 +16,8 @@ void puts2(char *str)
 	{
 	;
 	}
-	for (j = 0 ; j < i ; j = j + 2)
+
+	for (j = i/2 ; j < i ; j++)
 	{
 		putchar(str[j]);
 	}
