@@ -20,4 +20,7 @@ int print_last_digit(int);
 void print_to_98(int n);
 
 int add(int a, int d);
+
+void times_table(void);
+
 #endif
