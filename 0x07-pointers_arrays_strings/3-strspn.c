@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 #include "main.h"
 
 /**
@@ -11,14 +12,23 @@
 unsigned int _strspn(char *s, char *accept)
 {
 	int i;
+	int j;
+	unsigned int initial_length = 0;
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (accept[0] == s[i])
+		for (j = 0; accept[j]; j++)
 		{
-			i++;
-			break;
+			if (s[i] == accept[j])
+			{
+				initial_length++;
+				break;
+			}
+			else if (accept[j + 1] == '\0')
+			{
+				return (initial_length);
+			}
 		}
 	}
-	return (i);
+	return (initial_length);
 }
