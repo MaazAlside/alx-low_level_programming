@@ -26,11 +26,11 @@ char *_strdup(char *str)
 	strCopy = malloc(sizeof(char) * len + 1);
 	while ((strCopy[i] = str[i]) != '\0')
 	{
-		if (strCopy[i] == NULL)
+		i++;
+		if (str == NULL)
 		{
 			return (NULL);
 		}
-		i++;
 	}
 	return (strCopy);
 }
