@@ -13,7 +13,7 @@ char *_strdup(char *str)
 	unsigned int i, len;
 	char *strCopy;
 
-	len = 1;
+	len = 0;
 	i = 0;
 	if (str == NULL)
 	{
@@ -23,9 +23,13 @@ char *_strdup(char *str)
 	{
 		len++;
 	}
-	strCopy = malloc(sizeof(char) * len);
+	strCopy = malloc(sizeof(char) * len + 1);
 	while ((strCopy[i] = str[i]) != '\0')
 	{
+		if (strCopy[i] == NULL)
+		{
+			return (NULL);
+		}
 		i++;
 	}
 	return (strCopy);
