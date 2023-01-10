@@ -14,34 +14,31 @@ int **alloc_grid(int width, int height)
 	int **twoDarray;
 	int i;
 	int j;
-	int k;
-	int *a;
 
 	if (width <= 0 || height <= 0)
 		return (NULL);
-	twoDarray = (int **)malloc(height * sizeof(int *));
+	twoDarray = (int **)malloc(sizeof(int *) * height);
 	if (twoDarray == NULL)
 		return (NULL);
 
 	for (i = 0; i < height; i++)
 	{
-		*(twoDarray + i) = (int *)malloc(width * sizeof(int));
-		if (*(twoDarray + 1) == NULL)
+		twoDarray[i] = (int *)malloc(sizeof(int) * width);
+		if (twoDarray[i] == NULL)
 		{
-			for (i = 0; i < height; i++)
-			{
-				a = twoDarray[i];
-				free(a);
-			}
 			free(twoDarray);
+			for (j = 0; j <= i; j++)
+			{
+				free(twoDarray[j]);
+			}
 			return (NULL);
 		}
 	}
-	for (k = 0; k < height; k++)
+	for (i = 0; i < height; i++)
 	{
 		for (j = 0; j < width; j++)
 		{
-			twoDarray[k][j] = 0;
+			twoDarray[i][j] = 0;
 		}
 	}
 	return (twoDarray);
