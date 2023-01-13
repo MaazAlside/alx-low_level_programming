@@ -22,34 +22,38 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	if (s2 == NULL)
 		s2 = "";
-
 	while (s1[i])
 	{
 		i++;
 	}
-
-	len = i + n;
-
+	while (s2[j])
+	{
+		j++;
+	}
+	if (n >= j)
+	{
+		len = i + j;
+	} else
+	{
+		len = i + n;
+	}
 	s3 = malloc(sizeof(char) * (len + 1));
-
 	if (s3 == NULL)
 	{
 		return (NULL);
 	}
 	i = 0;
-
+	j = 0;
 	while (s1[i] != '\0')
 	{
 		s3[i] = s1[i];
 		i++;
 	}
-
 	while (j <= n)
 	{
 		s3[i] = s2[j];
 		i++;
 		j++;
 	}
-
 	return (s3);
 }
