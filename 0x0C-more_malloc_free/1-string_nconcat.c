@@ -8,18 +8,13 @@
  *@n: first n bytes of s2, and null terminated
  *Return: return concat string s1 and s2
  */
-
-
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *s3;
-	unsigned int i = 0;
-	unsigned int len = 0;
-	unsigned int j = 0;
+	unsigned int i, len, j;
 
 	if (s1 == NULL)
 		s1 = "";
-
 	if (s2 == NULL)
 		s2 = "";
 	while (s1[i])
@@ -55,5 +50,4 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		i++;
 		j++;
 	}
-	return (s3);
-}
+	return (s3); }
