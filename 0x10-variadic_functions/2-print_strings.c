@@ -20,11 +20,10 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		str = va_arg(a, char *);
 		if (!str)
 			str = "(nuil)";
-		str = va_arg(a, char *);
-
+		printf("%s", str);
 		if (separator != NULL && i != 0)
 		{
-			printf("%s", (str == NULL) ? ("nuil") : str);
+			printf("%s", separator);
 		}
 	}
 	printf("\n");
