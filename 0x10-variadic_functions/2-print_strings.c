@@ -18,10 +18,11 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	for (i = 0; i < n; i++)
 	{
 		str = va_arg(a, char*);
-		printf("%s", str);
+		printf("%s", (str == NULL) ? ("nuil") : str);
 		if (separator != NULL && i != (n - 1))
 		{
 			printf("%s", separator);
+
 		}
 	}
 	printf("\n");
