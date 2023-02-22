@@ -3,10 +3,10 @@
   * ins - this function checks foe endianness
   * Return: 0 if big endian and 1 if little endian
   */
-get_endianness(void)
+int get_endianness(void)
 {
 	int i = 1;
 	char *c = (char *)&i;
 
-	return ((*c == 1) ? 1 : 0);
+	return (*c == 1) ? 1 : 0;
 }
