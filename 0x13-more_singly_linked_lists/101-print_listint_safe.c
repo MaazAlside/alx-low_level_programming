@@ -11,7 +11,7 @@
 
 size_t print_listint_safe(const listint_t *head)
 {
-	const listint_t *current, *temp;
+	const listint_t *current = NULL, *temp = NULL;
 	size_t count = 0;
 
 	if (head == NULL)
