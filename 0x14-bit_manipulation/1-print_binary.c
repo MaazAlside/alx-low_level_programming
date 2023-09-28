@@ -35,6 +35,5 @@ for (j = i - 1; j >= 0; j--)
 printf("%d", binaryNumber[j]);
 }
 
-printf("\n");
 }
 
