@@ -7,9 +7,8 @@
  */
 void print_binary(unsigned long int n)
 {
-int binaryNumber[32];
-int i = 0;
-int j;
+int bit_position = sizeof(unsigned long int) * 8 - 1;
+int bit, printed = 0;
 
 if (n == 0)
 {
@@ -23,16 +22,19 @@ printf("1");
 return;
 }
 
-while (n > 0)
+while (bit_position >= 0)
 {
-binaryNumber[i] = n % 2;
-n = n >> 1;
-i++;
+
+bit = (n >> bit_position) & 1;
+
+
+if (bit == 1 || printed)
+{
+putchar(bit + '0');
+printed = 1;
 }
 
-for (j = i - 1; j >= 0; j--)
-{
-printf("%d", binaryNumber[j]);
+bit_position--;
 }
 
 }
