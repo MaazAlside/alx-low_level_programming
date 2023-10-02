@@ -1,60 +1,46 @@
 #include "main.h"
 
 /**
- * read_textfile - reads a specified number of characters from a file
- * @filename: the name of the file to be read
- * @letters: the number of characters to read and print
- * Return: the actual number of characters read and printed,
- * or 0 if an error occurs
+ * read_textfile - Reads a text file and prints it to the POSIX standard output.
+ * @filename: The name of the file.
+ * @letters: The number of letters it should read and print.
+ * Return: The actual number of letters it could read and print.
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
+	ssize_t bytesRead, fileDescriptor;
+	char *buffer;
+
 	if (filename == NULL)
 		return (0);
 
-	FILE *file = fopen(filename, "r");
-
-	if (file == NULL)
+	fileDescriptor = open(filename, O_RDONLY);
+	if (fileDescriptor == -1)
 		return (0);
 
-	char *buffer = (char *)malloc(letters * sizeof(char));
-    if (buffer == NULL)
+	buffer = malloc(sizeof(char) * letters);
+	if (buffer == NULL)
 	{
-		fclose(file);
+		close(fileDescriptor);
 		return (0);
 	}
 
-	size_t bytesRead = 0;
-
-	for (size_t i = 0; i < letters; i++)
+	bytesRead = read(fileDescriptor, buffer, letters);
+	if (bytesRead == -1)
 	{
-		int c = fgetc(file);
-
-		if (c == EOF)
-			break;
-
-		buffer[i] = (char)c;
-		bytesRead++;
+		free(buffer);
+		close(fileDescriptor);
+		return (0);
 	}
 
-	fclose(file);
-
-	size_t bytesWritten = 0;
-
-	for (size_t i = 0; i < bytesRead; i++)
+	if (write(STDOUT_FILENO, buffer, bytesRead) != bytesRead)
 	{
-		if (printf("%c", buffer[i]) < 0)
-		{
-			free(buffer);
-			return (0);
-		}
-		bytesWritten++;
+		free(buffer);
+		close(fileDescriptor);
+		return (0);
 	}
 
 	free(buffer);
-
-	if (bytesWritten != bytesRead)
-		return (0);
-
+	close(fileDescriptor);
 	return (bytesRead);
 }
