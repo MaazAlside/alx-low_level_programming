@@ -15,7 +15,7 @@ void copy_file(const char *source_filename, const char *destination_filename)
 	source_file = open(source_filename, O_RDONLY);
 	if (source_file == -1)
 	{
-		fprintf(stderr, "Error: Can't read from file %s\n", source_filename);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", source_filename);
 		exit(98);
 	}
 
@@ -25,7 +25,7 @@ void copy_file(const char *source_filename, const char *destination_filename)
 	if (destination_file == -1)
 	{
 		close(source_file);
-		fprintf(stderr, "Error: Can't write to %s\n", destination_filename);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", destination_filename);
 		exit(99);
 	}
 
@@ -34,7 +34,7 @@ void copy_file(const char *source_filename, const char *destination_filename)
 		bytes_written = write(destination_file, buffer, bytes_read);
 		if (bytes_written != bytes_read)
 		{
-			fprintf(stderr, "Error: Incomplete write to %s\n", destination_filename);
+			dprintf(STDERR_FILENO, "Error: Incomplete write to %s\n", destination_filename);
 			close(source_file);
 			close(destination_file);
 			exit(99);
@@ -43,7 +43,7 @@ void copy_file(const char *source_filename, const char *destination_filename)
 
 	if (bytes_read == -1)
 	{
-		fprintf(stderr, "Error: Can't read from file %s\n", source_filename);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", source_filename);
 		close(source_file);
 		close(destination_file);
 		exit(98);
@@ -51,13 +51,13 @@ void copy_file(const char *source_filename, const char *destination_filename)
 
 	if (close(source_file) == -1)
 	{
-		fprintf(stderr, "Error: Can't close fd %d\n", source_file);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", source_file);
 		exit(100);
 	}
 
 	if (close(destination_file) == -1)
 	{
-		fprintf(stderr, "Error: Can't close fd %d\n", destination_file);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", destination_file);
 		exit(100);
 	}
 }
@@ -75,8 +75,8 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		fprintf(stderr, "Usage: %s file_from file_to\n", argv[0]);
-		return (1);
+		dprintf(STDERR_FILENO, "Usage: %s file_from file_to\n", argv[0]);
+		return (97);
 	}
 
 	source_filename = argv[1];
