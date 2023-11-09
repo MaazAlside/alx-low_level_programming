@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /**
  * struct dlistint_s - doubly linked list
@@ -11,7 +12,7 @@
  * @next: points to the next node
  *
  * Description: doubly linked list node structure
- * 
+ *
  */
 typedef struct dlistint_s
 {
