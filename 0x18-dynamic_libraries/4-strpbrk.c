@@ -2,11 +2,11 @@
 #include "main.h"
 
 /**
- * _strpbrk - function that searches a string for any of a set of bytes.
- *@s: char  pointer
- *@accept: char pointer
- *Return: return a pointer to the byte in s
- */
+* _strpbrk - function that searches a string for any of a set of bytes.
+*@s: char  pointer
+*@accept: char pointer
+*Return: return a pointer to the byte in s
+*/
 
 char *_strpbrk(char *s, char *accept)
 {
@@ -23,5 +23,5 @@ char *_strpbrk(char *s, char *accept)
 		}
 		s++;
 	}
-	return ('\0');
+	return (NULL);
 }
