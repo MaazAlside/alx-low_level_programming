@@ -54,4 +54,4 @@ Upon completion, participants are expected to:
 - Avoid plagiarism; solutions are expected to be original.
 - Follow specified guidelines for coding style, file structure, and execution.
 - Utilize provided resources to understand dynamic libraries and related tools.
-- Strictly adhere to project deadlines and guidelines to ensure successful completion.
+- Strictly adhere to deadlines and guidelines to ensure successful completion.
