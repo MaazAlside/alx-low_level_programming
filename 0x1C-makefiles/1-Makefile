@@ -1,1 +1,7 @@
-#!/usr/bin/env bash
+all: school
+
+CC = gcc
+SRC = main.c school.c
+
+school: $(SRC)
+	$(CC) -o school $(SRC) school
