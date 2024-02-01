@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 """Island Perimeter"""
+
+
 def island_perimeter(grid):
     """returns the perimeter of the island described in grid"""
-    perimeter = 0;
+    perimeter = 0
     for row in range(len(grid)):
         for col in range(len(grid[row])):
             if grid[row][col] == 1:
