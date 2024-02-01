@@ -6,7 +6,7 @@ RM = rm -f
 CFLAGS = -Wall -Werror -Wextra -pedantic
 HEADER = m.h
 
-.PHONY: all clean fclean oclean re
+.PHONY: all clean oclean fclean re
 
 all: $(NAME)
 
